@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IProduct } from './product.model';
 
 @Component({
   selector: 'botz-catalog',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./catalog.component.css']
 })
 export class CatalogComponent {
+  product: IProduct;
 
+  constructor() {
+    this.product = {
+      id: 2,
+      description: "A friendly robot head with two eyes and a smile...",
+      name: "Friendly Bottt",
+      imageName: "head-friendly.png",
+      category: "Heads",
+      price: 945.0,
+      discount: 0.2
+    }
+  }
 }
