@@ -188,13 +188,16 @@ export class CatalogComponent {
       ]
   }
 
-  getImageUrl(product: IProduct) {
-    return '/assets/images/robot-parts/' + product.imageName
-  }
 
   getFilteredProducts() {
     return this.filter === ''
     ? this.products
     : this.products.filter((product) => product.category === this.filter)
+  }
+
+  addToCart(product: IProduct) {
+                                                          console.log("Add to cart method called on catalong component")
+    if(!product) return "";
+    return "/assets/images/robot-parts/" + product.imageName
   }
 }
