@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IProduct } from './product.model';
+import { CartComponent } from '_course-resources/cart/cart.component';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'botz-catalog',
@@ -7,10 +9,10 @@ import { IProduct } from './product.model';
   styleUrls: ['./catalog.component.css']
 })
 export class CatalogComponent {
-  products: IProduct[];
+  products: any;
   filter: string = '';
 
-  constructor() {
+  constructor(private cartSvc: CartService) {
     this.products = [
     {
       id: 1,
@@ -185,7 +187,7 @@ export class CatalogComponent {
       price: 700.5,
       discount: 0,
     },
-      ]
+      ]  
   }
 
 
@@ -196,8 +198,5 @@ export class CatalogComponent {
   }
 
   addToCart(product: IProduct) {
-                                                          console.log("Add to cart method called on catalong component")
-    if(!product) return "";
-    return "/assets/images/robot-parts/" + product.imageName
   }
 }
